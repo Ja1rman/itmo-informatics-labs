@@ -1,0 +1,49 @@
+<days>
+    <thursday>
+        <tr>
+            <time>
+                <hours>10:00-11:30</hours>
+                <weeks>2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17</weeks>
+            </time>
+            <room>
+                <aud>3408 ауд.</aud>
+                <address>ул.Ломоносова, д.9, лит. Е</address>
+            </room>
+            <lesson>
+                <title>Математика(Прак)</title>
+                <teacher>Милюшин Александр Сергеевич</teacher>
+            </lesson>
+            <lesson-format>Очно - дистанционный</lesson-format>
+        </tr>
+        <tr>
+            <time>
+                <hours>13:30-15:00</hours>
+                <weeks>2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17</weeks>
+            </time>
+            <room>
+                <aud>1222 ауд.</aud>
+                <address>ул.Ломоносова, д.9, лит. М</address>
+            </room>
+            <lesson>
+                <title>Математика(Лек)</title>
+                <teacher>Холодова Светлана Евгеньевна</teacher>
+            </lesson>
+            <lesson-format>Очно - дистанционный</lesson-format>
+        </tr>
+        <tr>
+            <time>
+                <hours>15:20-16:50</hours>
+                <weeks>16</weeks>
+            </time>
+            <room>
+                <aud>1123 ауд.</aud>
+                <address>ул.Ломоносова, д.9, лит. М</address>
+            </room>
+            <lesson>
+                <title>Математика(Прак)</title>
+                <teacher>Милюшин Александр Сергеевич</teacher>
+            </lesson>
+            <lesson-format>Очно - дистанционный</lesson-format>
+        </tr>
+    </thursday>
+</days>
