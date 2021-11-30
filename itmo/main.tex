@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}    
+\usepackage[english,russian]{babel} 
+\usepackage{multicol}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{graphicx}
+\usepackage{diagbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{fourier} 
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usetikzlibrary{calc,shadings,patterns}
+\makeatletter
+\tikzset{%
+  remember picture with id/.style={%
+    remember picture,
+    overlay,
+    save picture id=#1,
+  },
+  save picture id/.code={%
+    \edef\pgf@temp{#1}%
+    \immediate\write\pgfutil@auxout{%
+      \noexpand\savepointas{\pgf@temp}{\pgfpictureid}}%
+  },
+  if picture id/.code args={#1#2#3}{%
+    \@ifundefined{save@pt@#1}{%
+      \pgfkeysalso{#3}%
+    }{
+      \pgfkeysalso{#2}%
+    }
+  }
+}
+
+\def\savepointas#1#2{%
+  \expandafter\gdef\csname save@pt@#1\endcsname{#2}%
+}
+
+\def\tmk@labeldef#1,#2\@nil{%
+  \def\tmk@label{#1}%
+  \def\tmk@def{#2}%
+}
+
+\tikzdeclarecoordinatesystem{pic}{%
+  \pgfutil@in@,{#1}%
+  \ifpgfutil@in@%
+    \tmk@labeldef#1\@nil
+  \else
+    \tmk@labeldef#1,(0pt,0pt)\@nil
+  \fi
+  \@ifundefined{save@pt@\tmk@label}{%
+    \tikz@scan@one@point\pgfutil@firstofone\tmk@def
+  }{%
+  \pgfsys@getposition{\csname save@pt@\tmk@label\endcsname}\save@orig@pic%
+  \pgfsys@getposition{\pgfpictureid}\save@this@pic%
+  \pgf@process{\pgfpointorigin\save@this@pic}%
+  \pgf@xa=\pgf@x
+  \pgf@ya=\pgf@y
+  \pgf@process{\pgfpointorigin\save@orig@pic}%
+  \advance\pgf@x by -\pgf@xa
+  \advance\pgf@y by -\pgf@ya
+  }%
+}
+\newcommand\tikzmark[2][]{%
+\tikz[remember picture with id=#2] {#1;}}
+\makeatother
+
+
+
+\newcommand\HatchedCell[4][0pt]{%
+  \begin{tikzpicture}[overlay,remember picture]%
+    \fill[#4] ( $ (pic cs:#2) + (0,1.9ex) $ ) rectangle ( $ (pic cs:#3) + (0pt,-#1*\baselineskip-.8ex) $ );
+  \end{tikzpicture}%
+}%
+\title{Лабораторная работа №7 по информатике}
+\author{Ovsyannikov Roman Dmitrievich P3112}
+\date{November 2021}
+
+\begin{document}
+\input{title}
+\newpage
+\input{body}
+\end{document}
